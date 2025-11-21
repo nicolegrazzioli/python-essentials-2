@@ -1,16 +1,23 @@
 # experimentos
-# acessar funI() from iota
-from sys import path
-path.append('..\\packages')
+import os, sys
 
-import extra.iota
-print(extra.iota.funI())
+dir_atual = os.path.dirname(os.path.abspath(__file__)) #acha main2.py
+dir_pai = os.path.dirname(dir_atual) #acha pai de progs = python
+caminho_zip = os.path.join(dir_pai, 'packages', 'extrapack.zip') #monta caminho
 
-from extra.good.best.tau import funT
-print(extra.good.best.sigma.funS())
-print(funT())
+if os.path.exists(caminho_zip):
+    sys.path.append(caminho_zip) #adiciona ao sys.path (python procura modulos aqui)
+    print(f"caminho adicionado: {caminho_zip}")
+else:
+    print(f"caminho nao existe: {caminho_zip}")
+    
+# path.append('..\\packages\\extrapack.zip')
+
 
 import extra.good.best.sigma as sig #alias
 import extra.good.alpha as alp 
+from extra.iota import funI
+from extra.good.beta import funB
+
 print(sig.funS())
-print(sig.funA())
+print(alp.funA())
