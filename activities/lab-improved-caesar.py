@@ -33,28 +33,17 @@ for c in text:
         cipher += c
         continue #proximo
 
-    # new = ord(c) + shift 
-    new = ""
-    count = 0
-    while count <= shift:
-        print(count)
-        if ord(c)+1 == ord('z'):
-            print("ord(c) == ord(z)")
-            new = "a"
-            print(f"new a = {new}")
-            break
-        elif ord(c)+1 == ord('Z'):
-            print("ord(c) == ord(Z)")
-            new = "A"
-            print(f"new A = {new}")
-            break
-        count += 1
-    else:
-        new = chr(ord(c) + shift)
-        print(f"new fora if= {new}")
+    new = ord(c) + shift #novo ascii
 
-    cipher += new
-    print(cipher)
+    if c.islower():
+        if new > ord('z'):
+            new = ord('a') + (new - ord('z') - 1) #quantas letras passou do z - 1 ('z' foi o ultimo valido, começa do 'a')
+    else:
+        if new > ord('Z'):
+            new = ord('A') + (new - ord('Z') - 1)
+
+    cipher += chr(new)
+    # print(cipher)
 
 
 print(cipher)
