@@ -26,7 +26,24 @@ Sample input:
 
 Sample output:
 
-Yes"""
+Yes
+
+
+Sample input:
+
+195743862
+431865927
+876192543
+387459216
+612387495
+549216738
+763524189
+928671354
+254938671
+
+Sample output:
+
+No"""
 
 size = 9
 
@@ -46,7 +63,7 @@ for i in range(size):
 # linhas ok
 for row in sudoku:
     copy = sorted(row)
-    print(f"linha = {row}\tordenado = {copy}")
+    # print(f"linha = {row}\tordenado = {copy}")
     if copy != list(range(1, 10)):
         print("No")
         exit()
@@ -57,9 +74,25 @@ for j in range(size):
     for i in range(size):
         col.append(sudoku[i][j]) #extrai coluna
     copy2 = sorted(col)
-    print(f"coluna = {col}\tordenado = {copy2}")
+    # print(f"coluna = {col}\tordenado = {copy2}")
     if copy2 != list(range(1, 10)):
         print("No")
         exit()
 
 # 3x3
+for box_row in range(3): #blocos de altura
+    for box_col in range(3): #blocos de largura
+        box = [] #lista vazia
+        for i in range(3): #linhas do bloco
+            for j in range(3): #colunas do bloco
+                #indice da linha = box_row * 3 + i
+                #indice da coluna = box_col * 3 + j
+                #digito adicionado a lista box
+                box.append(sudoku[box_row * 3 + i][box_col * 3 + j])
+        copy3 = sorted(box)
+        # print(f"box = {box}\tordenado = {copy3}")
+        if copy3 != list(range(1, 10)):
+            print("No")
+            exit()
+
+print("Yes")
