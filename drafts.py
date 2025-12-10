@@ -1,3 +1,12 @@
-s1 = 'Where are the snows of yesteryear?'
-s2 = s1.split() # ['Where', 'are', 'the', 'snows', 'of', 'yesteryear?']
-s3 = sorted(s2) # ['Where', 'are', 'of', 'snows', 'the', 'yesteryear?']
+the_list = [1, 2, 3, 4, 5]
+ix = 0
+do_it = True
+ 
+while do_it:
+    try:
+        print(the_list[ix])
+        ix += 1
+    except IndexError:
+        do_it = False
+ 
+print('Done')
