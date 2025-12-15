@@ -23,7 +23,7 @@ Output
 23:59:59"""
 
 class Timer:
-    def __init__(self, h, m, s):
+    def __init__(self, h = 0, m = 0, s = 0):
         self.__hours = h
         self.__minutes = m
         self.__seconds = s
