@@ -39,6 +39,8 @@ class Weeker:
             n -= 7
         n += Weeker.__days.index(self.__day)
         self.__day = Weeker.__days[n]
+        # OR self.__current = (self.__current + n) % 7
+
         
 
     def subtract_days(self, n):
@@ -46,6 +48,7 @@ class Weeker:
             n -= 7
         n = Weeker.__days.index(self.__day) - n
         self.__day = Weeker.__days[n]
+        # OR self.__current = (self.__current - n) % 7
 
 
 try:
