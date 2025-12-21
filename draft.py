@@ -1,19 +1,7 @@
-class I:
-    def __init__(self):
-        self.s = 'abc'
-        self.i = 0
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.i == len(self.s):
-            raise StopIteration
-        v = self.s[self.i]
-        self.i += 1
-        return v
-
-
-for x in I():
-    print(x,end='')
+try:
+    stream = open("C:\Users\User\Desktop\file.txt", "rt")
+    # Processing goes here.
+    stream.close()
+except Exception as exc:
+    print("Cannot open the file:", exc)
 
