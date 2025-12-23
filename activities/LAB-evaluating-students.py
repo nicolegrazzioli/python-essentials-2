@@ -75,11 +75,15 @@ try:
     for name in sorted(students):
         print(name, '\t', students[name])
 
+
+except IOError as e:
+    print("I/O error occurred: ", strerror(e.errno))
+
 except FileEmpty as fe:
     print(f"Error in student {fe.student}: empty file!")
 
 except BadLine as bl:
     print(f"Error in line [{bl.badline}]: {bl.args[0]}")
 
-except StudentsDataException as e:
-    print("Error: ", e)
+# except StudentsDataException as e:
+#     print("Error: ", e)
