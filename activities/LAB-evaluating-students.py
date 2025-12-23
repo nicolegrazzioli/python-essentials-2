@@ -49,10 +49,10 @@ class FileEmpty(StudentsDataException):
 
 students = {}
 f = input("Name of the file (files/prof-jekyll.txt): ")
+
 try:
-    file = open(f, 'rt')
-    
-    for linha in file:
+    # file = open(f, 'rt')
+    for linha in open(f, 'rt'):
         # stream = file.readline()
         line = linha.split()
         if not line: #se tiver uma linha vazia
@@ -75,6 +75,7 @@ try:
     for name in sorted(students):
         print(name, '\t', students[name])
 
+#fecha automaticamente o arquivo
 
 except IOError as e:
     print("I/O error occurred: ", strerror(e.errno))
