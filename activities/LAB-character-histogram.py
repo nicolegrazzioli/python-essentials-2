@@ -20,15 +20,11 @@ try:
                 counts[c] = 1
             else:
                 counts[c] += 1
-        # if not c in counts and c.isalpha():
-        #     counts.update({c: 1})
-        # if c in counts:
-        #     counts[c] += 1 
 
     sorted_counts = dict(sorted(counts.items()))
 
-    for key in sorted_counts.keys():
-        print(key, "->", sorted_counts[key])
+    for key, value in sorted_counts.items():
+        print(key, "->", value)
 
 except IOError as e:
     print("error: ", strerror(e.errno))
