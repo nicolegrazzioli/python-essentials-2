@@ -1,17 +1,4 @@
-from os import strerror
-
-try:
-	file = open('newtext.txt', 'wt') 
-	for i in range(10):
-		s = "line #" + str(i+1) + "\n"
-		for char in s:
-			file.write(char)
-	file.close()
-	
-	arq = open('newtext.txt', 'rt')
-	s = arq.read()
-	for c in s:
-		print(c, end='')
-except IOError as e:
-	print("I/O error occurred: ", strerror(e.errno))
-    
+import os, platform
+# print(platform.uname()) #uname_result(system='Windows', node='WIN-F0FOK76J0KO', release='11', version='10.0.26200', machine='AMD64')
+# os.mkdir("files/my_1st_directory") #path (endereço)
+# print(os.listdir()) #lista diretorios = ['.git', 'activities', 'draft.py', 'examples', 'files', 'modules', 'packages', 'progs', 'README.md', '__pycache__']
