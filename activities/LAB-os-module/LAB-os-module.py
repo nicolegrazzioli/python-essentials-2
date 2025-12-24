@@ -25,20 +25,21 @@ Example output:
 from os import strerror
 import os
 
-os.chdir("activities/LAB-os-module")
-# print("1st cwd = ", os.getcwd())
-
 # path = caminho relativo ou absoluto de onde inciar a procura
 # dir = diretorio que quer achar no path - recursivo (inclui subdiretorios)
-# imprimr path absoluto
-# if dir in sei la o que
 def find(path, dir):
-    print(f"path = {path}, dir = {dir}")
-    os.chdir(path) #achou
-    # print(os.getcwd())
-    if dir in os.listdir():
-        print(os.getcwd() + '\\' + dir)
+    path = os.path.abspath(path)
 
+    if dir in os.listdir(path):
+        print(os.path.join(path, dir))
+    
+    for file in os.listdir(path):
+        atual_path = os.path.join(path, file)
+        if os.path.isdir(atual_path):
+            find(atual_path, dir)
+
+
+os.chdir("activities/LAB-os-module")
 search = input("Path and dir to search (model: 'path dir'): ").split()
 
 try:
